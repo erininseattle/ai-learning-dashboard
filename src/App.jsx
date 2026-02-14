@@ -1,39 +1,66 @@
-import { useCallback } from 'react';
+import { useState } from 'react';
 import { weeks, capstone, getAllActivityIds } from './data/curriculum';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useFirebaseSync } from './hooks/useFirebaseSync';
 import ProgressBar from './components/ProgressBar';
 import WeekModule from './components/WeekModule';
 import CapstoneSection from './components/CapstoneSection';
+import LoginScreen from './components/LoginScreen';
 
 export default function App() {
-  // progress is an object keyed by activity id:
-  // { "w1-a1": { completed: true, chatLink: "...", notes: "..." }, ... }
-  const [progress, setProgress] = useLocalStorage('ai-dashboard-progress', {});
-
-  const handleUpdateProgress = useCallback(
-    (activityId, updates) => {
-      setProgress((prev) => ({
-        ...prev,
-        [activityId]: { ...prev[activityId], ...updates },
-      }));
-    },
-    [setProgress]
+  const [userId, setUserId] = useState(
+    () => localStorage.getItem('ai-dashboard-userId') || ''
   );
+
+  function handleLogin(passphrase) {
+    localStorage.setItem('ai-dashboard-userId', passphrase);
+    setUserId(passphrase);
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('ai-dashboard-userId');
+    setUserId('');
+  }
+
+  if (!userId) {
+    return <LoginScreen onLogin={handleLogin} />;
+  }
+
+  return <Dashboard userId={userId} onLogout={handleLogout} />;
+}
+
+function Dashboard({ userId, onLogout }) {
+  const { progress, loading, handleUpdateProgress } = useFirebaseSync(userId);
 
   const allIds = getAllActivityIds();
   const completedCount = allIds.filter((id) => progress[id]?.completed).length;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-gray-500">Loading your progress...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-4 sm:px-6">
-          <h1 className="text-2xl font-bold text-gray-900">
-            AI Product Design
-          </h1>
-          <p className="text-sm text-gray-500 mt-1">
-            Interactive Learning Dashboard
-          </p>
+        <div className="max-w-4xl mx-auto px-4 py-4 sm:px-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">
+              AI Product Design
+            </h1>
+            <p className="text-sm text-gray-500 mt-1">
+              Interactive Learning Dashboard
+            </p>
+          </div>
+          <button
+            onClick={onLogout}
+            className="text-sm text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+          >
+            Switch device key
+          </button>
         </div>
       </header>
 
