@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { weeks, capstone, getAllActivityIds } from './data/curriculum';
+import { weeks, capstone, foundations, getAllActivityIds } from './data/curriculum';
 import { useFirebaseSync } from './hooks/useFirebaseSync';
 import ProgressBar from './components/ProgressBar';
+import FoundationsSection from './components/FoundationsSection';
 import WeekModule from './components/WeekModule';
 import CapstoneSection from './components/CapstoneSection';
 import LoginScreen from './components/LoginScreen';
@@ -67,6 +68,15 @@ function Dashboard({ userId, onLogout }) {
       {/* Main content */}
       <main className="max-w-4xl mx-auto px-4 py-8 sm:px-6">
         <ProgressBar completed={completedCount} total={allIds.length} />
+
+        {/* Foundations */}
+        <div className="mb-8">
+          <FoundationsSection
+            foundations={foundations}
+            progress={progress}
+            onUpdateProgress={handleUpdateProgress}
+          />
+        </div>
 
         {/* Weekly modules */}
         <div className="space-y-4 mb-8">

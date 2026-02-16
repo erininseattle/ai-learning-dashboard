@@ -777,9 +777,268 @@ Be thoughtful and honest in this reflection.`,
   ],
 };
 
+export const foundations = {
+  id: 'foundations',
+  title: 'Foundations',
+  description: 'Build your prerequisite skills before diving into AI product development. Self-study with external resources, hands-on exercises, and self-quizzes.',
+  modules: [
+    {
+      id: 'found-1',
+      title: 'JavaScript Fundamentals',
+      description: 'Learn to recognize and understand JavaScript syntax through reading and interactive practice.',
+      activities: [
+        {
+          id: 'f1-a1',
+          title: 'Reading: Variables & Data Types',
+          learningGoal: 'Recognize const, let, objects, arrays, strings, numbers, and booleans in JavaScript code',
+          prompt: `I'm working through JavaScript fundamentals using javascript.info as my primary resource.
+
+I've read Part 1, Sections 2.1-2.8 (variables, data types, functions). Now I need you to check my understanding.
+
+Quiz me on JavaScript variables and data types:
+1. Give me 5 multiple choice questions about const vs let
+2. Show me 3 code snippets and ask me to identify what each variable holds
+3. Show me buggy JavaScript code and ask me to find the errors
+
+After each answer, tell me if I'm right, explain why, and point out anything I should remember. Keep it focused on syntax recognition — I need to read code, not write it from scratch yet.`,
+          resources: [
+            { label: 'JavaScript.info — Variables', url: 'https://javascript.info/variables' },
+            { label: 'JavaScript.info — Data Types', url: 'https://javascript.info/types' },
+          ],
+        },
+        {
+          id: 'f1-a2',
+          title: 'Reading: Functions',
+          learningGoal: 'Understand how functions are declared, called, and how they take inputs and return outputs',
+          prompt: `I've been reading about JavaScript functions on javascript.info.
+
+Quiz me to check my understanding:
+1. Give me 5 questions about JavaScript functions and how to call them
+2. Show me 3 function declarations and ask me what each one does
+3. Show me code where a function is called with arguments and ask me to predict the output
+
+I'm a designer learning to read code, not write it from scratch. Focus on recognition and understanding, not memorization.`,
+          resources: [
+            { label: 'JavaScript.info — Functions', url: 'https://javascript.info/function-basics' },
+            { label: 'JavaScript.info — Function Expressions', url: 'https://javascript.info/function-expressions' },
+          ],
+        },
+        {
+          id: 'f1-a3',
+          title: 'Interactive Practice: freeCodeCamp',
+          learningGoal: 'Get hands-on practice with JavaScript syntax through bite-sized exercises',
+          prompt: `I've been working through the first 50-60 exercises on freeCodeCamp's JavaScript course.
+
+Some concepts are clicking, but I want to make sure I really understand them. Based on the freeCodeCamp JavaScript basics curriculum:
+
+1. Quiz me on the difference between const, let, and var
+2. Give me 5 code snippets with bugs and ask me to identify them
+3. Ask me to explain basic operators (===, !==, &&, ||) in plain English
+
+Be encouraging but honest about gaps. If I get something wrong, explain it using a real-world analogy.`,
+          resources: [
+            { label: 'freeCodeCamp — JavaScript Algorithms & Data Structures', url: 'https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/' },
+          ],
+        },
+        {
+          id: 'f1-a4',
+          title: 'Checkpoint: JavaScript Fundamentals Quiz',
+          learningGoal: 'Verify you can confidently read and understand basic JavaScript before moving on',
+          prompt: `I've completed my JavaScript fundamentals study (variables, data types, functions, basic operators) through javascript.info and freeCodeCamp exercises.
+
+Give me a comprehensive checkpoint quiz:
+1. 5 multiple choice questions covering variables, data types, and functions
+2. 3 code reading exercises — show me a snippet and ask what it does
+3. 2 bug-finding challenges — show me broken code and ask me to spot the issue
+4. 1 conceptual question — ask me to explain how data flows through a function
+
+Grade me at the end and tell me honestly: Am I ready to move on to React component structure, or should I review anything first?`,
+        },
+      ],
+    },
+    {
+      id: 'found-2',
+      title: 'Component Structure & React Basics',
+      description: 'Learn to read and understand React component anatomy — imports, props, state, and JSX.',
+      activities: [
+        {
+          id: 'f2-a1',
+          title: 'Reading: React Component Anatomy',
+          learningGoal: 'Understand how a React component is structured — imports, function, JSX return, props, and state',
+          prompt: `I've been reading the React official docs — "Describing the UI" and "Adding Interactivity" sections.
+
+Now I need to make sure I understand component structure. Please:
+
+1. Show me a simple React component and ask me to identify each part:
+   - Where are the imports?
+   - Where is the component function?
+   - Where is the JSX return?
+   - Where is state declared (useState)?
+   - Where are event handlers?
+2. Quiz me on the difference between props and state
+3. Show me a component with conditional rendering and ask me to predict what it shows
+
+I'm reading code to understand it, not writing from scratch. Focus on pattern recognition.`,
+          resources: [
+            { label: 'React.dev — Describing the UI', url: 'https://react.dev/learn/describing-the-ui' },
+            { label: 'React.dev — Adding Interactivity', url: 'https://react.dev/learn/adding-interactivity' },
+          ],
+        },
+        {
+          id: 'f2-a2',
+          title: 'Exercise: Code Reading & Annotation',
+          learningGoal: 'Practice tracing through a real component line by line',
+          prompt: `Help me practice reading React code by generating a simple component for me to annotate.
+
+Generate a React component that:
+- Shows a data card with a title, description, and a "Show Details" button
+- When the button is clicked, it toggles a details panel open/closed
+- Uses basic Tailwind classes for styling
+
+After you show me the code:
+1. Ask me to explain what each line does
+2. Ask me to identify: imports, state, event handler, conditional rendering, JSX
+3. If I'm right, confirm. If I'm wrong, explain.
+4. Point out patterns I'll see again and again
+
+This is Exercise 1 from my learning plan. I should be able to annotate every line.`,
+        },
+        {
+          id: 'f2-a3',
+          title: 'Checkpoint: React Basics Quiz',
+          learningGoal: 'Verify you can read and understand React components before moving on to CSS',
+          prompt: `I've studied React component structure and completed a code annotation exercise.
+
+Give me a checkpoint quiz:
+1. Show me a React component and ask me to explain what each part does
+2. Quiz me on the difference between props and state (what's the difference?)
+3. Give me 5 questions about event handlers in React (how do they work?)
+4. Show me a buggy React component and ask me to fix it
+5. Ask me: if I change this state value, what happens on screen?
+
+Grade me and tell me if I'm ready to move on to CSS architecture.`,
+          resources: [
+            { label: 'Web Dev Simplified — React Hooks (YouTube)', url: 'https://www.youtube.com/results?search_query=web+dev+simplified+react+hooks' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'found-3',
+      title: 'CSS Architecture & Design Systems',
+      description: 'Learn to replace Tailwind with semantic CSS, convert Figma tokens to CSS custom properties, and build components with your own design system.',
+      activities: [
+        {
+          id: 'f3-a1',
+          title: 'Tailwind to CSS Translation',
+          learningGoal: 'Map common Tailwind utility classes to their CSS equivalents',
+          prompt: `I need to learn how to translate Tailwind CSS classes into regular CSS. I'm a designer who wants to replace Tailwind in AI-generated prototypes with my own design system.
+
+Teach me by:
+1. Give me a Tailwind class and quiz me on the CSS equivalent (start with 10 common ones: flex, items-center, justify-between, gap-4, p-4, mt-2, bg-blue-500, text-white, rounded-lg, shadow-md)
+2. Show me a div with multiple Tailwind classes and ask me to write the equivalent CSS with a semantic class name
+3. Explain why semantic class names (like .card-header) are better than utility classes for a design system
+
+Common translations I should memorize:
+- flex → display: flex
+- items-center → align-items: center
+- p-4 → padding: 1rem
+- gap-4 → gap: 1rem
+- rounded-lg → border-radius: 0.5rem
+
+Quiz me until I can do this confidently.`,
+          resources: [
+            { label: 'Tailwind to CSS Converter', url: 'https://tailwind-to-css.vercel.app/' },
+            { label: 'Tailwind CSS Documentation', url: 'https://tailwindcss.com/docs' },
+          ],
+        },
+        {
+          id: 'f3-a2',
+          title: 'Exercise: Convert a Component from Tailwind to CSS',
+          learningGoal: 'Take an AI-generated component and replace all Tailwind classes with semantic CSS',
+          prompt: `Help me practice replacing Tailwind with my own CSS.
+
+Generate a simple React component (like a user profile card) that uses Tailwind classes. Then guide me through:
+
+1. Identifying every Tailwind class in the component
+2. Creating semantic class names to replace them (e.g., .profile-card, .profile-avatar, .profile-name)
+3. Writing a CSS file with the equivalent styles
+4. Showing me the final component with className="profile-card" instead of className="flex items-center gap-4 p-4..."
+
+After we're done, quiz me:
+- Given bg-blue-500, can I write the CSS equivalent?
+- Given p-4 mt-2 rounded-lg, can I translate to CSS?
+- Can I explain why semantic class names are better than utility classes?`,
+        },
+        {
+          id: 'f3-a3',
+          title: 'Design Tokens as CSS Custom Properties',
+          learningGoal: 'Convert Figma design tokens into CSS custom properties and use them in components',
+          prompt: `I have a design system in Figma with defined tokens for colors, spacing, and typography. I want to learn how to express these as CSS custom properties.
+
+Teach me:
+1. What are CSS custom properties (--variable-name syntax)?
+2. How do they work like design tokens in code?
+3. How do I define them in :root and use them with var()?
+
+Then help me set up a starter token file:
+- Colors: --color-primary, --color-secondary, --color-success, --color-danger
+- Spacing: --spacing-xs through --spacing-xl
+- Typography: --font-size-sm, --font-size-base, --font-size-lg, --font-weight-normal, --font-weight-bold
+
+Show me how to use these in a real component. Then quiz me:
+- How do CSS custom properties work?
+- Why are they better than hardcoded values?
+- How do I reference a custom property in CSS?`,
+          resources: [
+            { label: 'MDN — CSS Custom Properties', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' },
+          ],
+        },
+        {
+          id: 'f3-a4',
+          title: 'Exercise: Build a Component with Your Design System',
+          learningGoal: 'Build a component from scratch using only your CSS design tokens — no Tailwind',
+          prompt: `I want to test myself by building a component from scratch using my own CSS design system.
+
+Help me pick a simple component to build (like a filter dropdown, data card, status badge, or search input) and guide me through:
+
+1. Writing the JSX structure
+2. Creating semantic class names
+3. Writing all CSS using only my custom properties (--color-primary, --spacing-md, etc.)
+4. Adding basic interactivity (a click handler or toggle)
+
+No Tailwind allowed! Everything should use my design token system.
+
+After I'm done, review my code:
+- Can I build a component without looking at examples?
+- Can I explain what each part does?
+- Would this be maintainable in a real design system?`,
+        },
+        {
+          id: 'f3-a5',
+          title: 'Checkpoint: CSS & Design Systems Quiz',
+          learningGoal: 'Verify you can confidently replace Tailwind with your own design system before starting the AI curriculum',
+          prompt: `I've completed the CSS architecture and design system modules. Give me a final checkpoint quiz:
+
+1. Give me 10 Tailwind classes and ask me to write the CSS equivalents
+2. Show me a component styled with Tailwind and ask me to rewrite it with semantic classes
+3. Quiz me on CSS custom properties — when to use them, how to define and reference them
+4. Ask me to explain the data flow: user action → state change → UI update
+5. Show me a code snippet and ask me to identify bugs
+
+Grade me honestly. Am I ready to start building AI products, or should I review anything?
+
+This is my final foundations checkpoint before moving into the AI Product Design curriculum.`,
+        },
+      ],
+    },
+  ],
+};
+
 // Helper to get all activity IDs (used for progress tracking)
 export function getAllActivityIds() {
   const weekIds = weeks.flatMap((w) => w.activities.map((a) => a.id));
   const capstoneIds = capstone.phases.flatMap((p) => p.activities.map((a) => a.id));
-  return [...weekIds, ...capstoneIds];
+  const foundationIds = foundations.modules.flatMap((m) => m.activities.map((a) => a.id));
+  return [...foundationIds, ...weekIds, ...capstoneIds];
 }
